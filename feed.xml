@@ -1,0 +1,2337 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wechaty.js.org/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wechaty.js.org/" rel="alternate" type="text/html" /><updated>2021-10-10T18:06:58+00:00</updated><id>https://wechaty.js.org/feed.xml</id><title type="html">Wechaty</title><subtitle>Conversational RPA SDK for Chatbot Makers</subtitle><entry><title type="html">OSPP 2021-结项报告-开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块</title><link href="https://wechaty.js.org/2021/10/06/ospp-final-term-qq-puppet/" rel="alternate" type="text/html" title="OSPP 2021-结项报告-开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块" /><published>2021-10-06T00:00:00+00:00</published><updated>2021-10-06T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/10/06/ospp-final-term-qq-puppet</id><content type="html" xml:base="https://wechaty.js.org/2021/10/06/ospp-final-term-qq-puppet/">&lt;p&gt;本项目通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成为 Wechaty 可以使用的社区生态模块。&lt;/p&gt;
+
+&lt;p&gt;“&lt;a href=&quot;https://summer.iscas.ac.cn&quot;&gt;开源软件供应链点亮计划-暑期2021&lt;/a&gt;”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。活动联合各大开源社区，针对重要开源软件的开发与维护提供项目，并向全球高校学生开放报名。 学生可自主选择感兴趣的项目进行申请，并在中选后获得该软件资深维护者（社区导师）亲自指导的机会。 根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。&lt;/p&gt;
+
+&lt;p&gt;本项目 [开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块] 系 暑期2021 支持的开源项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;开发支持-qq-聊天软件的-wechaty-puppet-provider-模块&quot;&gt;开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块&lt;/h2&gt;
+
+&lt;h3 id=&quot;项目背景&quot;&gt;项目背景&lt;/h3&gt;
+
+&lt;p&gt;Wechaty 社区目前已经支持微信、Whatsapp、企业微信、飞书等常见流行即时通讯工
+具，并且能够通过多语言 SDK (比如 Python Wechaty) 进行调用。
+QQ 是国内和微信并列的两大聊天软件。我们在本次 Summer 2021 的项目中，Wechaty
+希望可以实现对 QQ Chatbot 的支持。通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成
+为 Wechaty 可以使用的社区生态模块。&lt;/p&gt;
+
+&lt;h3 id=&quot;方案描述&quot;&gt;方案描述&lt;/h3&gt;
+
+&lt;p&gt;使用 &lt;a href=&quot;https://github.com/wechaty/wechaty-puppet-mock&quot;&gt;https://github.com/wechaty/wechaty-puppet-mock&lt;/a&gt; 项目作为模版，参考社区其他
+的 Wechaty Puppet Provider 代码模块，对 QQ 进行规划、RPA 选型、原型测试，和最终
+的代码封装。
+构建一个 Wechaty Puppet Provider 模块。 在初期开发中，能够实现文本消息的接收和发送，即可完成原型验证 POC。&lt;/p&gt;
+
+&lt;h3 id=&quot;项目技术栈&quot;&gt;项目技术栈&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;TypeScript programming language&lt;/li&gt;
+  &lt;li&gt;Git&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wechaty.js.org/docs/explainations//rpa&quot;&gt;RPA&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;时间规划&quot;&gt;时间规划&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;第一阶段（7月-8月）
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;7.1-7.10（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;先和导师沟通，并观看Wechaty Puppet Provider 的 workshop 视频，熟悉Wechaty Puppet Provider的业务流程，并对自己目前还没有掌握的nodejs、npm、typescript等内容进行快速的了解和学习，对时间安排做好具体的规划&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;7.11-8.15（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;开始正式进行代码的prototyping，先完成基础的功能，完成通过 Wechaty 加载 wechaty-puppet-oicq 模块，并通过oicq项目实现的qq协议，实现文本消息的收发功能。每周协同导师进行功能的开发和完善&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;第二阶段（8月-10月）
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;8.16-8.30（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;完成期中 Demo Day 视频和wechaty.js.org上的中期报告。在现有基础上，对显示二维码，保存设备信息等问题进行调研和解决。&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;9.1-9.30（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;将项目包上传npm，并与&lt;a href=&quot;https://github.com/wechaty/wechaty-getting-started&quot;&gt;wechaty-getting-started&lt;/a&gt;项目相连，使得用户可以通过设置环境变量一键化使用wechaty-puppet-oicq模块。设置github action自动测试代码，并在push版本时自动上传npm。实现了联系人信息的导入（QQ好友的昵称、性别等信息），wechaty bot可以在终端显示发送消息者的QQ昵称。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目进度&quot;&gt;项目进度&lt;/h2&gt;
+
+&lt;h3 id=&quot;已完成部分&quot;&gt;已完成部分&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ding dong bot完成登录：实现显示QQ登录二维码，并完成扫码登录环节，成功登录账号&lt;/li&gt;
+  &lt;li&gt;ding dong bot消息回复：扫码即可运行QQ机器人，发送ding给机器人，即可收到dong的消息&lt;/li&gt;
+  &lt;li&gt;使得wechaty-puppet-oicq模块启动ESM（ES Modules）的支持（感谢李卓桓导师的帮助）&lt;/li&gt;
+  &lt;li&gt;设置github action自动测试代码，并在push版本时自动上传npm。&lt;/li&gt;
+  &lt;li&gt;与&lt;a href=&quot;https://github.com/wechaty/wechaty-getting-started&quot;&gt;wechaty-getting-started&lt;/a&gt;项目相连，使得用户可以通过设置环境变量一键化使用wechaty-puppet-oicq模块。&lt;/li&gt;
+  &lt;li&gt;ContactPayload相关函数的实现：完成联系人信息的导入（QQ好友的昵称、性别等信息），wechaty bot可以在终端显示发送此消息者的QQ昵称。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;遇到的困难与解决&quot;&gt;遇到的困难与解决&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;wechaty消息处理链路相对复杂，难以理解`&lt;/p&gt;
+
+    &lt;p&gt;通过咨询项目导师和wechaty飞书机器人负责人等途径，观看社区live coding视频，对消息处理进行快速学习，并通过编码实践，最终成功将oicq的事件和消息格式转换为了wechaty的messageRawPayload，也加深了对框架架构设计的理解。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;遇到QQ风控
+  通过途径弄到了一些QQ小号方便测试。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在CentOS7机器上安装ruby和jekyll遇到较多报错
+  原因是ruby version manager依赖的GPG keyserver失效，更换&lt;a href=&quot;https://github.com/rvm/rvm/issues/5096&quot;&gt;新的服务器地址&lt;/a&gt;即可&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;中期报告修改在PR上讨论，和预览看到的实际效果有些差异，对话中导师想要的效果和我的理解可能不太一样，一次次来回比较费时间。感谢李佳芮导师耐心的指导和审核，最终完成了blog的修正。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;与&lt;a href=&quot;https://github.com/wechaty/wechaty-getting-started&quot;&gt;wechaty-getting-started&lt;/a&gt;项目连接，做成一键化使用的过程中，遇到不少报错。感谢李卓桓导师的帮助下，完成了ESM（ES Modules）的支持，并跑通npm publish的github action，最终成功连接&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;oicq库会显示额外的命令行调试信息。已经通过查阅文档去除这些信息。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目成果&quot;&gt;项目成果&lt;/h2&gt;
+
+&lt;p&gt;项目仓库: &lt;a href=&quot;https://github.com/wechaty/wechaty-puppet-oicq&quot;&gt;https://github.com/wechaty/wechaty-puppet-oicq&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;npm包：&lt;a href=&quot;https://www.npmjs.com/package/wechaty-puppet-oicq&quot;&gt;https://www.npmjs.com/package/wechaty-puppet-oicq&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;live-coding视频&quot;&gt;live coding视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/TbIgFhSWVxI&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内版：&lt;a href=&quot;http://www.iqiyi.com/v_1uv2wbi4p44.html&quot;&gt;http://www.iqiyi.com/v_1uv2wbi4p44.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/Z2IIPe0FLA4&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内版：&lt;a href=&quot;https://www.iqiyi.com/v_1f3m7rhczog.html&quot;&gt;https://www.iqiyi.com/v_1f3m7rhczog.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/10-ospp-final-term-qq-puppet/final-qq-puppet.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;联系我们&quot;&gt;联系我们&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;导师：李佳芮 Wechaty co-creator, Founder &amp;amp; CEO of Juzi.BOT (rui@chatie.io)&lt;/li&gt;
+  &lt;li&gt;导师：李卓桓 Wechaty creator, Tencent TVP of Chatbot (huan@chatie.io)&lt;/li&gt;
+  &lt;li&gt;学生：naivebird(github)：20210240029@fudan.edu.cn&lt;/li&gt;
+  &lt;li&gt;项目链接：&lt;a href=&quot;https://github.com/wechaty/summer/issues/81&quot;&gt;https://github.com/wechaty/summer/issues/81&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>anaivebird</name></author><category term="project" /><category term="ospp" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ospp" /><category term="ospp-2021" /><category term="final-term" /><category term="ecosystem" /><category term="puppet" /><category term="qq" /><summary type="html">本项目通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成为 Wechaty 可以使用的社区生态模块。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/10-ospp-final-term-qq-puppet/wechaty-qq-puppet-logo.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/10-ospp-final-term-qq-puppet/wechaty-qq-puppet-logo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OSPP 2021-结项报告-基于 Wechaty 开发开源的二师兄社群逗乐机器人</title><link href="https://wechaty.js.org/2021/10/06/ospp-final-wechaty-piggy-bro/" rel="alternate" type="text/html" title="OSPP 2021-结项报告-基于 Wechaty 开发开源的二师兄社群逗乐机器人" /><published>2021-10-06T00:00:00+00:00</published><updated>2021-10-06T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/10/06/ospp-final-wechaty-piggy-bro</id><content type="html" xml:base="https://wechaty.js.org/2021/10/06/ospp-final-wechaty-piggy-bro/">&lt;h2 id=&quot;暑期2021&quot;&gt;暑期2021&lt;/h2&gt;
+
+&lt;p&gt;“开源软件供应链点亮计划-暑期2021”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。
+旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。
+根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。
+官网：&lt;a href=&quot;https://summer.iscas.ac.cn/&quot;&gt;https://summer.iscas.ac.cn/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本项目 [基于 Wechaty 开发开源的二师兄社群逗乐机器人] 系 暑期2021 支持的开源项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;项目信息&quot;&gt;项目信息&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;导师：韩磊、鲁玉超、王玉丹&lt;/li&gt;
+  &lt;li&gt;学生：井维嘉&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目介绍：&lt;a href=&quot;https://github.com/wechaty/summer-of-wechaty/issues/83&quot;&gt;https://github.com/wechaty/summer-of-wechaty/issues/83&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目名称：基于 Wechaty 开发开源的二师兄社群逗乐机器人&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;方案描述&lt;/p&gt;
+
+    &lt;p&gt;本项目需要基于Wechaty开发一个多功能群聊机器人。&lt;/p&gt;
+
+    &lt;p&gt;该机器人的核心功能是编写并配置&lt;strong&gt;拦截器&lt;/strong&gt;来实现对消息的响应。拦截器是一种&lt;strong&gt;固定传入参数和返回值类型的函数&lt;/strong&gt;，通过编写拦截器的逻辑，可以&lt;strong&gt;拦截消息&lt;/strong&gt;或&lt;strong&gt;放行消息给下一个拦截器&lt;/strong&gt;，同时&lt;strong&gt;做出一定的响应&lt;/strong&gt;。&lt;/p&gt;
+
+    &lt;p&gt;本项目&lt;strong&gt;预置了若干功能&lt;/strong&gt;，如查天气、讲笑话、成语接龙、猜字谜等以供使用和参考。同时，本项目希望能够&lt;strong&gt;允许用户自行添加功能&lt;/strong&gt;，所以用户可以通过自己编写拦截器的方式，来为机器人添加功能。&lt;/p&gt;
+
+    &lt;p&gt;本项目也将提供一个&lt;strong&gt;二师兄后花园&lt;/strong&gt;页面，作为扩展的帮助文档、状态查询和日活功能使用。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;时间规划：&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;开发可扩展式开发框架（7.1-7.7）
+        &lt;ul&gt;
+          &lt;li&gt;熟悉Wechaty开发模式&lt;/li&gt;
+          &lt;li&gt;搭建二师兄开发脚手架&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;具体功能实现（7.8-7.30）
+        &lt;ul&gt;
+          &lt;li&gt;初步实现要求中的具体功能，可能包括且不限于：讲笑话、看热搜、查天气、成语接龙、猜图片、猜歌名&lt;/li&gt;
+          &lt;li&gt;初步编写相关功能API的注册与部署文档&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;设计二师兄Logo及形象（8.1-8.7）
+        &lt;ul&gt;
+          &lt;li&gt;为二师兄的Logo和形象做出初步描述&lt;/li&gt;
+          &lt;li&gt;Logo及形象定稿&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;开发二师兄后花园（8.8-8.30）
+        &lt;ul&gt;
+          &lt;li&gt;设计后花园功能和页面布局&lt;/li&gt;
+          &lt;li&gt;搭建二师兄后花园服务及页面&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;编写文档与完善功能（9.1-9.30）
+        &lt;ul&gt;
+          &lt;li&gt;编写使用、部署及开发文档&lt;/li&gt;
+          &lt;li&gt;整理代码并完善功能&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目总结&quot;&gt;项目总结&lt;/h2&gt;
+
+&lt;p&gt;项目仓库：&lt;a href=&quot;https://github.com/ReiKohaku/piggy-bro&quot;&gt;https://github.com/ReiKohaku/piggy-bro&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;项目成果&quot;&gt;项目成果&lt;/h3&gt;
+
+&lt;p&gt;截至到项目结束，取得了如下成果：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;搭建了在任意支持的环境中可以自行部署的开箱即用的微信机器人。&lt;/li&gt;
+  &lt;li&gt;内置了讲笑话、查天气、搜音乐、看热搜、成语接龙和猜字谜六项基本娱乐功能。&lt;/li&gt;
+  &lt;li&gt;设计了“具备电子感、偏卡通的、类似大众心目中传统二师兄形象”的Logo。&lt;/li&gt;
+  &lt;li&gt;编写了基本的后花园服务和页面，通过阅读文档可以学会部署的方法。后花园提供了使用帮助和状态查询两个模块。&lt;/li&gt;
+  &lt;li&gt;编写了详细的部署文档，以及功能开发相关的文档。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;项目原计划的核心目标已经全部完成。&lt;/p&gt;
+
+&lt;h3 id=&quot;live-code视频&quot;&gt;Live Code视频&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/51EwCNB_Y90&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;国内链接：&lt;a href=&quot;https://v.qq.com/x/page/t3300psc439.html&quot;&gt;https://v.qq.com/x/page/t3300psc439.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/Na9pGdf_6oY&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;国内链接：&lt;a href=&quot;https://v.qq.com/x/page/m3300a8rnft.html&quot;&gt;https://v.qq.com/x/page/m3300a8rnft.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/10-ospp-final-wechaty-piggy-bro/final-ppt.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;其它&quot;&gt;其它&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;联系方式：&lt;/p&gt;
+
+    &lt;p&gt;微信：ReiKohaku
+E-mail：hbsjzjwj@163.com&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>reikohaku</name></author><category term="project" /><category term="ospp" /><category term="chat" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ecosystem" /><category term="ospp" /><category term="ospp-2021" /><category term="final" /><summary type="html">暑期2021</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/10-ospp-final-wechaty-piggy-bro/piggy-bro-logo.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/10-ospp-final-wechaty-piggy-bro/piggy-bro-logo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OSPP 2021-结项报告-基于 Itchat 为 Python Wechaty 实现社区首个 Python 语言的本地 Puppet</title><link href="https://wechaty.js.org/2021/10/05/ospp-final-term-wechaty-itchat-puppet/" rel="alternate" type="text/html" title="OSPP 2021-结项报告-基于 Itchat 为 Python Wechaty 实现社区首个 Python 语言的本地 Puppet" /><published>2021-10-05T00:00:00+00:00</published><updated>2021-10-05T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/10/05/ospp-final-term-wechaty-itchat-puppet</id><content type="html" xml:base="https://wechaty.js.org/2021/10/05/ospp-final-term-wechaty-itchat-puppet/">&lt;p&gt;“开源软件供应链点亮计划-暑期2021”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。
+旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。
+根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。
+官网：&lt;a href=&quot;https://summer.iscas.ac.cn/&quot;&gt;https://summer.iscas.ac.cn/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本项目 [基于 Itchat 为 Python Wechaty 实现社区首个 Python 语言的本地 Puppet] 系 暑期2021 支持的开源项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;基于-itchat-为-python-wechaty-实现社区首个-python-语言的本地-puppet信息&quot;&gt;基于 Itchat 为 Python Wechaty 实现社区首个 Python 语言的本地 Puppet信息&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;导师：吴京京、李卓桓&lt;/li&gt;
+  &lt;li&gt;学生：肖良玉&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目介绍：&lt;a href=&quot;https://github.com/wechaty/summer/issues/75&quot;&gt;https://github.com/wechaty/summer/issues/75&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;项目名称：基于 Itchat 为 Python Wechaty 实现社区首个 Python 语言的本地 Puppet&lt;/li&gt;
+  &lt;li&gt;方案描述：
+    &lt;ul&gt;
+      &lt;li&gt;L0阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：熟悉 Itchat 的各项 API ；熟悉 Wechaty Puppet 的开发流程；创建 python-wechaty-puppet-itchat 的 repository 。&lt;/li&gt;
+          &lt;li&gt;实施方案：阅读 Itchat 文档，了解 Wechaty Puppet。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;L1阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：完成 python-wechaty-puppet-itchat 的登录与初始化部分的实现；完成  ding-dong-bot 的实现。&lt;/li&gt;
+          &lt;li&gt;实施方案：了解 python-wechaty-puppet-service 是如何通过 gRPC 与远程服务器通讯的，并结合 Itchat 的设计模式，对比二者异同，思考如何将 Itchat 的函数封装进 wechaty-puppet ，思考 wechaty-puppet 的哪些代码对于该项目而言是不必要的，并完成对 Itchat 中 auto_login 函数的封装。 在此基础上深入了解 Itchat msg_register 函数的实现方法，并在此基础上封装进 wechaty-puppet ，同时完成发送消息函数的封装。同时参考其他 wechaty-puppet 完成 ding-dong-bot.py 并使其能正常运行。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;L2阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：配置 GitHub Action 实现 python-wechaty-puppet-itchat 自动发布到  Pypi 并完成自动化测试。&lt;/li&gt;
+          &lt;li&gt;实施方案：了解 Pypi 的发布流程，并在参考已有 GitHub Action 配置文件的基础上完成自动发布的流程，同时完成自动化测试。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;L3阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：使用 Itchat 的 API 为 python-wechaty-puppet-itchat 实现 User 和  Room 部分的功能。&lt;/li&gt;
+          &lt;li&gt;实施方案：在该阶段，我计划深入了解 Itchat 关于 User 部分的 get_contact 等函数的实现，封装为 Wechaty 的 User 相关模块的功能。同时将 Itchat create_chatroom 等函数封装为 Wechaty Room 模块的功能。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;L4阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：为 python-wechaty-puppet-itchat 实现 Itchat 的其他功能。&lt;/li&gt;
+          &lt;li&gt;实施方案：在该阶段，我计划将 Itchat 剩余的接口根据 Wechaty 的代码风格封装进 python-wechaty-puppet-itchat 。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;*L5阶段：
+        &lt;ul&gt;
+          &lt;li&gt;预期效果：完善 python-wechaty 文档。&lt;/li&gt;
+          &lt;li&gt;实施方案：在了解 python-wechaty 的基础上，我计划在 python-wechaty 原有文档的基础上进行完善和补充。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;时间规划：
+    &lt;ul&gt;
+      &lt;li&gt;第一阶段（7月-8月）
+        &lt;ul&gt;
+          &lt;li&gt;L0阶段开发 5天&lt;/li&gt;
+          &lt;li&gt;L1阶段开发 10天&lt;/li&gt;
+          &lt;li&gt;L2阶段开发 20天&lt;/li&gt;
+          &lt;li&gt;中期验收&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;第二阶段（8月-10月）
+        &lt;ul&gt;
+          &lt;li&gt;L3阶段开发 10天&lt;/li&gt;
+          &lt;li&gt;L4阶段开发 15天&lt;/li&gt;
+          &lt;li&gt;L5阶段开发 15天&lt;/li&gt;
+          &lt;li&gt;结项验收&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目总结&quot;&gt;项目总结&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目产出：
+    &lt;ul&gt;
+      &lt;li&gt;产出1：Python Wechaty Puppet Itchat：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat&quot;&gt;https://github.com/wechaty/python-wechaty-puppet-itchat&lt;/a&gt;，代码已合并到社区&lt;/li&gt;
+      &lt;li&gt;产出2：PyPi 包：&lt;a href=&quot;https://pypi.org/project/wechaty-puppet-itchat/&quot;&gt;https://pypi.org/project/wechaty-puppet-itchat/&lt;/a&gt;，已可以正常使用&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;方案进度：
+    &lt;ul&gt;
+      &lt;li&gt;已完成工作：
+        &lt;ul&gt;
+          &lt;li&gt;L0阶段：已完成（PR：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/1&quot;&gt;init code by python wechaty puppet service #1&lt;/a&gt;）&lt;/li&gt;
+          &lt;li&gt;L1阶段：已完成（PR：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/4&quot;&gt;添加scan/login事件 #4&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/6&quot;&gt;Debug emit problem #6&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/10&quot;&gt;Fix emit bugs add receive msg #10&lt;/a&gt;）&lt;/li&gt;
+          &lt;li&gt;L2阶段：已完成（PR：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/7&quot;&gt;Add CI/CD #7&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/8&quot;&gt;Fix code style to pass ci/cd #8&lt;/a&gt; 和 PyPi 打包发布：&lt;a href=&quot;https://pypi.org/project/wechaty-puppet-itchat/&quot;&gt;https://pypi.org/project/wechaty-puppet-itchat/&lt;/a&gt;)&lt;/li&gt;
+          &lt;li&gt;L3阶段：已完成（PR：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/6&quot;&gt;Debug emit problem #6&lt;/a&gt;）&lt;/li&gt;
+          &lt;li&gt;L4阶段：已完成（PR：&lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat/pull/13&quot;&gt;add features #13&lt;/a&gt;）&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;遇到的问题及解决方案：
+    &lt;ul&gt;
+      &lt;li&gt;困难1：对 CI/CD 中的各项工具不熟悉，推代码时遇到困难&lt;/li&gt;
+      &lt;li&gt;解决方案：根据导师推荐的资料，学习 GitHub Action 、 MakeFiles 、 pre-commit 等工具的用法，并配置 GPG key 等&lt;/li&gt;
+      &lt;li&gt;困难2：在 Wechaty Puppet 中无法正常使用 Itchat 的函数&lt;/li&gt;
+      &lt;li&gt;解决方案：根据导师的建议，深入了解了 Python 协程，将 Itchat 函数全部改为异步函数后得以解决&lt;/li&gt;
+      &lt;li&gt;困难3：在使用 AsyncIOEventEmitter 时发现事件无法 Emit 到 Wechaty 层&lt;/li&gt;
+      &lt;li&gt;解决方案：根据导师指导，添加 await asyncio.sleep() 后解决&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;项目完成质量：
+    &lt;ul&gt;
+      &lt;li&gt;已完成全部预定进度，Python Wechaty Puppet Itchat 已可以正常使用，且代码已通过 CI 检查，符合社区对代码规范的要求&lt;/li&gt;
+      &lt;li&gt;不足之处：在于由于时间有限，未能对 Itchat 的代码进行重构，该项任务将会在后续结项后继续完成&lt;/li&gt;
+      &lt;li&gt;综合以上两点，个人对项目完成质量评价：良好&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;与导师沟通及反馈情况：
+    &lt;ul&gt;
+      &lt;li&gt;与导师保持积极的沟通，能及时反馈疑问及问题&lt;/li&gt;
+      &lt;li&gt;反馈的问题会及时得到导师的回复，并且导师会通过讨论引导我独立解决&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;项目展望：
+    &lt;ul&gt;
+      &lt;li&gt;Python Wechaty Puppet Itchat
+        &lt;ul&gt;
+          &lt;li&gt;在结项后，我仍计划持续维护这一 Puppet，并计划将 Itchat 的代码进行重构&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Python Wechaty
+        &lt;ul&gt;
+          &lt;li&gt;我计划之后也持续参与到 Python Wechaty 生态的建设中去 （包括但不限于：为 Python Wechaty 贡献代码、为 python-wechaty-plugin-contrib 贡献 Plugin 等）&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Wechaty
+        &lt;ul&gt;
+          &lt;li&gt;我还计划于年末为 Wechaty 社区提供一个基于 CQHTTP 的 QQ Puppet &lt;a href=&quot;https://github.com/lyleshaw/wechaty-puppet-cq&quot;&gt;wechaty-puppet-cq&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目成果&quot;&gt;项目成果&lt;/h2&gt;
+
+&lt;p&gt;项目仓库: &lt;a href=&quot;https://github.com/wechaty/python-wechaty-puppet-itchat&quot;&gt;https://github.com/wechaty/python-wechaty-puppet-itchat&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PyPi 包：&lt;a href=&quot;https://pypi.org/project/wechaty-puppet-itchat/&quot;&gt;https://pypi.org/project/wechaty-puppet-itchat/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;live-coding视频&quot;&gt;live coding视频&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1sP4y187Vj/&quot;&gt;https://www.bilibili.com/video/BV1sP4y187Vj/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/fGjEd5O97lQ&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1z34y1U7MR/&quot;&gt;https://www.bilibili.com/video/BV1z34y1U7MR/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/SKhgnRaljzk&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/10-ospp-final-term-wechaty-itchat-puppet/itchat.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;联系我们&quot;&gt;联系我们&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目链接：&lt;a href=&quot;https://github.com/wechaty/summer/issues/75&quot;&gt;https://github.com/wechaty/summer/issues/75&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;联系方式：&lt;a href=&quot;mailto:lyle@hdu.edu.cn&quot;&gt;lyle@hdu.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>lyleshaw</name></author><category term="project" /><category term="ospp" /><category term="itchat" /><category term="puppet" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ecosystem" /><category term="ospp" /><category term="ospp-2021" /><category term="final-term" /><summary type="html">“开源软件供应链点亮计划-暑期2021”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。 旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。 根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。 官网：https://summer.iscas.ac.cn/</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/10-ospp-final-term-wechaty-itchat-puppet/python-wechaty-puppet-itchat.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/10-ospp-final-term-wechaty-itchat-puppet/python-wechaty-puppet-itchat.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OSPP 2021-结项报告-开发基于Wechaty实现微俱乐部会员&amp;amp;活动管理的微信小程序</title><link href="https://wechaty.js.org/2021/09/29/final-term-club-managment/" rel="alternate" type="text/html" title="OSPP 2021-结项报告-开发基于Wechaty实现微俱乐部会员&amp;amp;活动管理的微信小程序" /><published>2021-09-29T00:00:00+00:00</published><updated>2021-09-29T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/29/final-term-club-managment</id><content type="html" xml:base="https://wechaty.js.org/2021/09/29/final-term-club-managment/">&lt;h2 id=&quot;暑期2021&quot;&gt;暑期2021&lt;/h2&gt;
+
+&lt;p&gt;“开源软件供应链点亮计划-暑期2021”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。
+旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。
+根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。
+官网：&lt;a href=&quot;https://summer.iscas.ac.cn/&quot;&gt;https://summer.iscas.ac.cn/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本项目 [开发基于Wechaty实现微俱乐部会员&amp;amp;活动管理的微信小程序] 系 暑期2021 支持的开源项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;项目信息&quot;&gt;项目信息&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;导师：鲁玉超&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;学生：陈婧&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目介绍：&lt;a href=&quot;https://github.com/wechaty/summer/issues/78&quot;&gt;https://github.com/wechaty/summer/issues/78&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目名称：开发基于微信实现微俱乐部会员&amp;amp;活动管理的微信小程序&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;方案描述：本项目需要基于wechaty开发一个能进行会员和活动管理的小程序。小程序的核心内容为报名服务，WeChat机器人作为服务之一完成接收信息，并响应入库的工作。本程序意在为使用者提供更方便快捷的管理成员及管理活动的功能。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;时间规划：&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;阶段一
+        &lt;ul&gt;
+          &lt;li&gt;完成时间：7月20日&lt;/li&gt;
+          &lt;li&gt;计划描述：引入聊天机器人，整理基础适用/开发生产环境/用户协议，绑定用户数据到俱乐部，使用微信开放平台实现“关键词回复”功能。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;阶段二
+        &lt;ul&gt;
+          &lt;li&gt;完成时间：8月15日&lt;/li&gt;
+          &lt;li&gt;计划描述：实践“群主发布活动”功能，实践“群主管理活动”功能，实践“成员标签活动”功能，完善以上功能块进行调试。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;阶段三
+        &lt;ul&gt;
+          &lt;li&gt;完成时间：9月5日&lt;/li&gt;
+          &lt;li&gt;计划描述：实践“活动相册”功能、“帮助”功能（将关键词与操作关联，要求提高容错性），如果有空余时间，设计自定功能。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;阶段四
+        &lt;ul&gt;
+          &lt;li&gt;完成时间：9月30日&lt;/li&gt;
+          &lt;li&gt;描述计划：实践自设定功能，收集中出现的问题，针对程序运行程序功能，小整体优化升级（用户数据处理）。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目总结&quot;&gt;项目总结&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目成果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;项目仓库: &lt;a href=&quot;https://github.com/mangguo188/wechaty-club-management&quot;&gt;https://github.com/mangguo188/wechaty-club-management&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;遇到的问题及解决方案：
+    &lt;ul&gt;
+      &lt;li&gt;启动小程序后仅出现授权页面，授权后无应有显示。
+        &lt;ul&gt;
+          &lt;li&gt;方案：本项目需要小程序与机器人一同登录，只有机器人持有者登入小程序，界面才会正确显示。找到云开发日志中机器人持有者发布的消息，将其wxid赋值给小程序使用者（小程序使用者原先的wxid是系统自动生成的数字，仅保证wxid唯一，但无意义）。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;云函数编写过程中常出现错误，但是错误查找需要提交运行，时间周期长且提交次数有限，需要发掘更好检验错误的方法。
+        &lt;ul&gt;
+          &lt;li&gt;方案：在老师的建议下，我先在机器人中模拟后端返回，将函数编写在机器人服务中，检验函数的正确性，当所有函数运行完毕无错后再在后端更改相应函数，此举大大减少了云函数的上传次数，降低电脑负荷。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;本项目仅对文本信息可做出响应反馈，对于超链接、图片、视频等消息无法提取有效信息。
+        &lt;ul&gt;
+          &lt;li&gt;方案：暂时搭建响应超链接、图片、视频的框架，后续功能待有时间可持续开发。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;编写完成后，小程序的云开发部分与前端部分与机器人位于同一文件夹下，两者分别不明晰，加上每个文件夹下都有index.js文件，极易出现修改错误。
+        &lt;ul&gt;
+          &lt;li&gt;方案：将小程序封装到mp文件夹下，机器人封装到wechatbot文件夹下，使两者功能可以分开使用，也易连接（需要注意的是，由于小程序云函数封装到mp文件夹下，从微信开发者工具上查看时只需要打开mp文件夹，不然会出现无法部署的问题）。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;项目展望：
+    &lt;ul&gt;
+      &lt;li&gt;本项目仅完成基础功能开发，目前使用者进入小程序可以随时查看群活动与该群内成员id，包括报名记录等便利统计数据的内容。但将基本框架已搭建完毕，后续有时间可加更多功能模块，包括如何将群机器人与小程序1对1的关系解开，方便更多小程序使用者简便获取活动管理功能等。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目展示&quot;&gt;项目展示&lt;/h2&gt;
+
+&lt;h3 id=&quot;live-coding视频&quot;&gt;live coding视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/5LZ08re5YR8&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1hR4y1n7AH/&quot;&gt;https://www.bilibili.com/video/BV1hR4y1n7AH/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/eSgaD32njVw&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1uP4y187T9/&quot;&gt;https://www.bilibili.com/video/BV1uP4y187T9/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/09-final-term-club-managment/final-term.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;联系我们&quot;&gt;联系我们&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目链接：&lt;a href=&quot;https://github.com/mangguo188/wechaty-club-management&quot;&gt;https://github.com/mangguo188/wechaty-club-management&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;联系方式：1017137803@qq.com&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mangguo188</name></author><category term="project" /><category term="ospp" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ecosystem" /><category term="ospp" /><category term="ospp-2021" /><category term="final-term" /><summary type="html">暑期2021</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-final-term-club-managment/wechaty.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-final-term-club-managment/wechaty.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoD 2021-Final-Term-Blog-References</title><link href="https://wechaty.js.org/2021/09/29/gsod21-final-blog-references/" rel="alternate" type="text/html" title="GSoD 2021-Final-Term-Blog-References" /><published>2021-09-29T00:00:00+00:00</published><updated>2021-09-29T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/29/gsod21-final-blog-references</id><content type="html" xml:base="https://wechaty.js.org/2021/09/29/gsod21-final-blog-references/">&lt;p&gt;After four months of immense learning, we come to the end of Google Season of Docs 2021, here is the final blog of the References team.&lt;/p&gt;
+
+&lt;h2 id=&quot;team-members&quot;&gt;Team Members&lt;/h2&gt;
+
+&lt;h3 id=&quot;shraddha-vasant-prasad&quot;&gt;Shraddha Vasant Prasad&lt;/h3&gt;
+
+&lt;p&gt;Shraddha graduated in 2020 with a B.Tech major in Computer science and Engineering at JSS Academy of Technical Education, Bangalore, and is currently a Software Engineer at American Express and she is also a Student Mentor at Newton School. She is a passionate developer and is a creative blogger.&lt;/p&gt;
+
+&lt;p&gt;Email: &lt;a href=&quot;mailto:shraddhavp.1js16cs094@gmail.com&quot;&gt;shraddhavp.1js16cs094@gmail.com&lt;/a&gt;&amp;lt;/br&amp;gt;
+Github Handle: &lt;a href=&quot;https://github.com/shraddhavp&quot;&gt;https://github.com/shraddhavp&lt;/a&gt;&amp;lt;/br&amp;gt;
+Medium: &lt;a href=&quot;https://shraddha-writes.medium.com/&quot;&gt;https://shraddha-writes.medium.com/&lt;/a&gt;&amp;lt;/br&amp;gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;soumi-bardhan&quot;&gt;Soumi Bardhan&lt;/h3&gt;
+
+&lt;p&gt;Soumi Bardhan, is a final year student at IIIT Kalyani. She is a freelance technical writer and software developer and is currently working on Computer vision and AI projects.&lt;/p&gt;
+
+&lt;p&gt;Email: &lt;a href=&quot;mailto:soumibardhan10@gmail.com&quot;&gt;soumibardhan10@gmail.com&lt;/a&gt;&amp;lt;/br&amp;gt;
+Github Handle: &lt;a href=&quot;https://github.com/Soumi7&quot;&gt;https://github.com/Soumi7&lt;/a&gt;&amp;lt;/br&amp;gt;
+Medium: &lt;a href=&quot;https://soumibardhan10.medium.com/&quot;&gt;https://soumibardhan10.medium.com/&lt;/a&gt;&amp;lt;/br&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;objectives&quot;&gt;Objectives&lt;/h2&gt;
+
+&lt;p&gt;The reference guide contain the technical description of the machinery. They are code determined and information oriented. The references guides contain clear descriptions of Classes, API, Functions, Methods, Attributes, and many more technical aspects of the software. The Wechaty references aim to guide the end-users completely about Wechaty.
+The refernces guide will contain the following subsections with the described content below&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;API References&lt;/strong&gt;
+Add use cases for API references, add code snippets and also add details about user classes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Polyglot&lt;/strong&gt;
+Add code snippets with easy-to-understand examples for first-time users in different programming languages.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Puppet Providers&lt;/strong&gt;
+Add separate modules for each of the messaging apps and add necessary code snippets.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Puppet Services&lt;/strong&gt;
+Include all the puppet services offered by Wechaty.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;final-term-video-presentation&quot;&gt;Final Term Video Presentation&lt;/h2&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/YaZ9Q_NjHBM&amp;amp;t=4s&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;pull-requestscommits&quot;&gt;Pull Requests/Commits&lt;/h2&gt;
+
+&lt;p&gt;You can find all PRs done by us in the links below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/wechaty/wechaty.js.org/pulls?q=is%3Apr+author%3Asoumi7&quot;&gt;Soumi’s PRs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/wechaty/wechaty.js.org/pulls?q=is%3Apr+author%3Ashraddhavp+&quot;&gt;Shraddha’s PRs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;work-done&quot;&gt;Work Done&lt;/h3&gt;
+
+&lt;p&gt;This repository contains the details of all the work done by our team in the tenure of Google Season of Docs 2021.&lt;/p&gt;
+
+&lt;h2 id=&quot;milestones-achieved&quot;&gt;Milestones Achieved&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Created a new ,brief and a clean documentation structure for References section.&lt;/li&gt;
+  &lt;li&gt;Created a user friendly  documentation with new information ,code snippets,images for  the end-users to understand the Wechaty RPA BOT better.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;learnings&quot;&gt;Learnings&lt;/h2&gt;
+
+&lt;p&gt;We are glad to have got the chance and opportunity to be a part of the Google Season of Docs 2021 program organized by Google. The learning curve in the whole journey has been steep. The program has helped me to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Understand the importance of Technical documentation.&lt;/li&gt;
+  &lt;li&gt;Learn about Docusaurus and MDX(Markdown+ReactJS).&lt;/li&gt;
+  &lt;li&gt;Learn about RPA (Robotic Process Automation) bots.&lt;/li&gt;
+  &lt;li&gt;Get involved in an innovative community that is  Wechaty.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;We are thankful to &lt;strong&gt;Google Season of Docs&lt;/strong&gt; and &lt;strong&gt;Wechaty&lt;/strong&gt; for giving us this opportunity. We would also like to thank my mentors &lt;strong&gt;Huan LI&lt;/strong&gt; and &lt;strong&gt;Li Jiarui&lt;/strong&gt; for their constant support and  lastly would like to thank the volunteers &lt;strong&gt;Simin Liao&lt;/strong&gt; and &lt;strong&gt;Rohitesh Kumar Jain&lt;/strong&gt; for their constant support.They led the video meetings in a well-organized, interactive manner and made the meetings a  great platform for discussion.&lt;/p&gt;
+
+&lt;h2 id=&quot;future-plans&quot;&gt;Future Plans&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Continue to work towards contributing to Wechaty community.&lt;/li&gt;
+  &lt;li&gt;Detect and rectify issues in implementation of the RPA bot if any in the future.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>shraddhavp</name></author><category term="gsod" /><category term="google" /><category term="gsod-2021" /><category term="gsod" /><category term="end-term" /><category term="evaluation" /><category term="2021" /><category term="docs" /><summary type="html">After four months of immense learning, we come to the end of Google Season of Docs 2021, here is the final blog of the References team.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-gsod21-final-blog-references/final-gsod-21-references.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-gsod21-final-blog-references/final-gsod-21-references.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OSPP 2021-结项报告-基于 Matrix AppService Wechaty 项目的用户、群与消息等基础功能的完善</title><link href="https://wechaty.js.org/2021/09/28/ospp-final-term-matrix-wechaty/" rel="alternate" type="text/html" title="OSPP 2021-结项报告-基于 Matrix AppService Wechaty 项目的用户、群与消息等基础功能的完善" /><published>2021-09-28T00:00:00+00:00</published><updated>2021-09-28T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/28/ospp-final-term-matrix-wechaty</id><content type="html" xml:base="https://wechaty.js.org/2021/09/28/ospp-final-term-matrix-wechaty/">&lt;p&gt;Matrix AppService Wechaty 是一个 Matrix 应用服务（ AppService ），它可以把 Wechaty 支持的应用桥接到 Matrix 服务器中，帮助我们在 Matrix 客户端收发微信，飞书等通讯平台的消息。本项目基于 Matrix AppService Wechaty 完善了消息收发，用户信息展示，部署和开发流程优化等功能。&lt;/p&gt;
+
+&lt;h2 id=&quot;matrix-appservice-wechaty项目信息&quot;&gt;&lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty&quot;&gt;Matrix AppService Wechaty&lt;/a&gt;项目信息&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;导师：李卓桓，yswtrue&lt;/li&gt;
+  &lt;li&gt;学生：林宇靖，张瑞宁&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目介绍：&lt;a href=&quot;https://github.com/wechaty/summer/issues/59&quot;&gt;https://github.com/wechaty/summer/issues/59&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;项目名称：基于 Matrix AppService Wechaty 项目的用户、群与消息等基础功能的完善&lt;/li&gt;
+  &lt;li&gt;方案描述：通过 Matrix-Appservice-Bridge 桥接 Wechaty 和 Matrix 的消息，使我们能在 Matrix 收发 Wechaty 消息，即收发来自微信，飞书等的消息。&lt;/li&gt;
+  &lt;li&gt;时间规划：&lt;a href=&quot;https://github.com/wechaty/summer/issues/59#issuecomment-882246195&quot;&gt;https://github.com/wechaty/summer/issues/59#issuecomment-882246195&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目总结&quot;&gt;项目总结&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目成果：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;计划&lt;/th&gt;
+          &lt;th&gt;完成情况&lt;/th&gt;
+          &lt;th&gt;成果&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;架设 Matrix 系统&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;在家庭环境， 境内外VPS 均进行过实验部署， 并部署了一套社区 Matrix 服务器&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;整合&lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty/&quot;&gt;matrix-appservice-wechaty&lt;/a&gt;到Matrix系统中&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;通过该实验熟悉了Matrix系统的各个功能模块，对后面的开发有启发作用&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;分析项目需求&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;需求(&lt;a href=&quot;https://github.com/wechaty/summer/issues/59#issuecomment-882246195&quot;&gt;details&lt;/a&gt;)： 图片，附件消息收发；虚拟用户头像，昵称，备注的显示；部署方案的简化；开发方案的简化；实现“双傀儡”，同步其他设备主动发送的消息；&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;实现图片消息的接收和发送，完成原型验证 POC&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;成功模拟收发群组和私聊中的图片及附件消息&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;实现其他欠缺功能&lt;/td&gt;
+          &lt;td&gt;部分完成&lt;/td&gt;
+          &lt;td&gt;支持指定 Chrome 程序； 支持修改消息延迟阈值等； 未实现“双傀儡”&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;进行测试，完善项目文档&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;进行自动测试和人工测试，并解决发现的问题&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;设计实现新部署方案，提供更加简便的部署方案&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&quot;https://github.com/wechaty/easy-matrix-wechaty&quot;&gt;easy-matrix-wechaty&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;设计实现新开发方案，提供更加简便的开发环境部署方案&lt;/td&gt;
+          &lt;td&gt;完成&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty/tree/devcontainer-support&quot;&gt;devcontain-support&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;遇到的问题及解决方案：&lt;/p&gt;
+
+    &lt;p&gt;学生本科学的是软件工程专业，对软件建模语言有一定了解，课堂项目中也经常使用相关技术产品。&lt;/p&gt;
+
+    &lt;p&gt;从程序设计到程序系统到软件工程，软件工程解决了很多难题，但软件建模语言在几十年来却一直被诟病为“语义丰富但不严谨”，本人在实际实践中也觉得它们用起来并不怎么方便。&lt;/p&gt;
+
+    &lt;p&gt;在本项目的实践中，我第一次体验完整的开源项目贡献流程。尽管一开始犯了一些错误，在导师的指导下，我最终学会如何使用 issue 和 PR 请求来高效地参与开源项目。在开发流程中，我几乎没有使用 UML ，但这不妨碍我阅读 issue，README 文档和源码来了解这个项目，并进行开发排错。在开发过程中，我们与导师能更多地就新功能的实现方式进行沟通，而不必花时间讨论以前的代码，这是我以前未体验过的高效的编程体验。&lt;/p&gt;
+
+    &lt;p&gt;我也怀疑过这是否是因为该项目比较特殊。它有完整的自动测试和自动编译配置（和 CI/CD 类似，但目的通常不是部署），这和 Wechaty 社区里多数项目一致，和其他优秀开源项目一致，但这是可复制的。我也怀疑过是否因为这项目比较简单。然而，一开始的部署方案里，我们要部署近十个服务来实现邮箱，安全认证，突触，突触联合等服务，要求部署计算机有可以申请证书的域名以及一些需要备案的共有IP端口。我们后来做了很多努力才把依赖降低为两个服务器，无域名端口要求，这依赖于 docker 的强大功能，和 linux，matrix 等一系列开源应用的透明易用。&lt;/p&gt;
+
+    &lt;p&gt;我觉得这个项目的开发流程有很多可以借鉴的地方，虽然我目前没能从事软件工程方面的研究学习，但这份开发经历给我留下了深刻印象，有机会的话我会继续深入研究学习或者应用它。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;项目展望：&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;实现&lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty/issues/85&quot;&gt;“双傀儡”&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;实现一个机器人，桥接微信消息到社区 Matrix 房间中，如 &amp;lt;#wechaty_wecahty:gitter.im&amp;gt; 中的 Mike Bo，并且显示每个用户的头像和昵称&lt;/li&gt;
+      &lt;li&gt;让桥接机器人&amp;lt;@Wechaty:localhost&amp;gt;同时为多个 Matrix 用户提供桥接服务&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目成果&quot;&gt;项目成果&lt;/h2&gt;
+
+&lt;p&gt;项目仓库: &lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty&quot;&gt;matrix-appservice-wechaty&lt;/a&gt;，&lt;a href=&quot;https://github.com/wechaty/easy-matrix-wechaty&quot;&gt;easy-matrix-wechaty&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;live-coding视频&quot;&gt;live coding视频&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/qtbExkN0uoI&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1Eq4y1Z7Ya/&quot;&gt;https://www.bilibili.com/video/BV1Eq4y1Z7Ya/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/3j3BGRnoVtE&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1QR4y1p7Hd/&quot;&gt;https://www.bilibili.com/video/BV1QR4y1p7Hd/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/09-ospp-final-term-matrix-wechaty/final-term-report.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;联系我们&quot;&gt;联系我们&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;项目链接：&lt;a href=&quot;https://github.com/wechaty/summer/issues/59&quot;&gt;https://github.com/wechaty/summer/issues/59&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;联系方式：
+    &lt;ul&gt;
+      &lt;li&gt;林宇靖：lprintf@qq.com&lt;/li&gt;
+      &lt;li&gt;张瑞宁：3134191406@qq.com&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;“&lt;a href=&quot;https://summer.iscas.ac.cn&quot;&gt;开源软件供应链点亮计划-暑期2021&lt;/a&gt;”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。活动联合各大开源社区，针对重要开源软件的开发与维护提供项目，并向全球高校学生开放报名。 学生可自主选择感兴趣的项目进行申请，并在中选后获得该软件资深维护者（社区导师）亲自指导的机会。 根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。&lt;/p&gt;
+
+&lt;p&gt;本项目 &lt;a href=&quot;https://github.com/wechaty/matrix-appservice-wechaty&quot;&gt;Matrix AppService Wechaty&lt;/a&gt; 系 暑期2021 支持的开源项目。&lt;/p&gt;</content><author><name>lprintf</name></author><category term="project" /><category term="ospp" /><category term="matrix" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ospp" /><category term="ospp-2021" /><category term="final-term" /><category term="ecosystem" /><summary type="html">Matrix AppService Wechaty 是一个 Matrix 应用服务（ AppService ），它可以把 Wechaty 支持的应用桥接到 Matrix 服务器中，帮助我们在 Matrix 客户端收发微信，飞书等通讯平台的消息。本项目基于 Matrix AppService Wechaty 完善了消息收发，用户信息展示，部署和开发流程优化等功能。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-ospp-final-term-matrix-wechaty/wechaty-matrix.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-ospp-final-term-matrix-wechaty/wechaty-matrix.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">人类的本质是复读机 - 可能是世界上最无聊的机器人</title><link href="https://wechaty.js.org/2021/09/28/the-stupidest-bot-ever-created/" rel="alternate" type="text/html" title="人类的本质是复读机 - 可能是世界上最无聊的机器人" /><published>2021-09-28T00:00:00+00:00</published><updated>2021-09-28T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/28/the-stupidest-bot-ever-created</id><content type="html" xml:base="https://wechaty.js.org/2021/09/28/the-stupidest-bot-ever-created/">&lt;p&gt;&lt;a href=&quot;https://wechaty.js.org/docs/contributing/&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/Wechaty-Contributor%20Program-green.svg&quot; alt=&quot;Wechaty Contributor Program&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;这个可能是世界上最无聊的机器人。如果你看到了这里，恭喜你，你已经浪费了人生中宝贵的一分钟。如果有四十个人看到了这里，那么一节课的时间已经没了。&lt;/p&gt;
+
+&lt;p&gt;机器人的特点是，不经意间触发，意料之外又情理之中，实现一种后现代主义的幽默感。&lt;/p&gt;
+
+&lt;p&gt;代码开源在 &lt;a href=&quot;https://github.com/BurgerBurglar/mouse_bot&quot;&gt;BurgerBurglar/mouse_bot&lt;/a&gt;。我是 TypeScript 初学者，很多地方都是瞎写的。如果代码实在太丑，欢迎留言给我提意见。很多地方我实在是不会写，就用 Python 搭了个 API，再用 TypeScript 调用接口直接回复。&lt;/p&gt;
+
+&lt;h2 id=&quot;功能列表&quot;&gt;功能列表&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;群聊自动复读&lt;/li&gt;
+  &lt;li&gt;无厘头自动回复&lt;/li&gt;
+  &lt;li&gt;成语接龙&lt;/li&gt;
+  &lt;li&gt;游戏发售倒计时&lt;/li&gt;
+  &lt;li&gt;足球比赛预告&lt;/li&gt;
+  &lt;li&gt;足球实时赔率查询&lt;/li&gt;
+  &lt;li&gt;质问别人为什么拍我&lt;/li&gt;
+  &lt;li&gt;艾特别人&lt;/li&gt;
+  &lt;li&gt;让川普举牌子&lt;/li&gt;
+  &lt;li&gt;下载链接里的视频&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;群聊自动复读&quot;&gt;群聊自动复读&lt;/h2&gt;
+
+&lt;p&gt;每个群总有几个复读机，喜欢像傻子一样在群聊里复制粘贴别人的话。这时候，如果你不跟着复读，就会显得和这个群的智商水平格格不入。为了避免这种尴尬，我只好让机器人代劳了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/congrats.webp&quot; alt=&quot;congrats&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/england-champions.webp&quot; alt=&quot;england-champions&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然有可能有人恶意使用机器人，比如这样：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/bot-abuse.webp&quot; alt=&quot;bot-abuse&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;实现的原理是：对于每一个群聊，生成一个队列，储存最近的十条信息。收到信息时，如果新信息在队列中已经出现了三次，那么就自动复读。&lt;/p&gt;
+
+&lt;p&gt;同时，每个群聊还有另外一个队列，储存最近三个已经复读过的内容，避免反复复读刷屏。&lt;/p&gt;
+
+&lt;h2 id=&quot;无厘头自动回复&quot;&gt;无厘头自动回复&lt;/h2&gt;
+
+&lt;p&gt;很简单的功能，如果触发了关键词，就随机挑选一个回复。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/juejuezi.webp&quot; alt=&quot;juejuezi&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/wolf-warriors.webp&quot; alt=&quot;wolf-warriors&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/guangxi-monkeys.webp&quot; alt=&quot;guangxi-monkeys&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;群友语录&quot;&gt;群友语录&lt;/h3&gt;
+
+&lt;p&gt;生活中，总有些话发人深省，总有些句子让你泪流满面。互联网是有记忆的，而记忆也是会随风飘逝的。为了铭记这些句子，机器人正在努力。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/famous-quotes.webp&quot; alt=&quot;famous-quotes&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;成语接龙&quot;&gt;成语接龙&lt;/h2&gt;
+
+&lt;p&gt;很多群聊里都有成语接龙这一传统爱好。屡次败北之后，我决定使用科技打败他们。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/idioms.webp&quot; alt=&quot;idioms&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然，本功能还有很多不足。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;比如由于三流网络成语词典，机器人居然把味同嚼蜡读成了味同嚼醋，造成了重大 bug。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/idiom-bug.webp&quot; alt=&quot;idiom-bug&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;机器人的词汇量和初中语文老师（我妈）比，还有一定差距。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/idiom-lost.webp&quot; alt=&quot;idiom-lost&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;本机器人追求的是一个出其不意的效果。谁在群里不小心说了个成语，机器人一定会迅速作出反应，群里就能玩好一会。很多死群都因为这个功能复活了。&lt;/p&gt;
+
+&lt;p&gt;开发了这个功能之后，我被一个成语接龙群踢了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;成语接龙代码由 &lt;a href=&quot;https://github.com/sfyc23/China-idiom&quot;&gt;sfyc23/China-idiom&lt;/a&gt; 提供&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;游戏发售倒计时&quot;&gt;游戏发售倒计时&lt;/h2&gt;
+
+&lt;p&gt;总有些吃饱了没事干的群友在群里每天复读某某游戏还有几天发售。为了避免群友手动计算日期，我开发了游戏发售倒计时机器人。&lt;/p&gt;
+
+&lt;p&gt;首先在有游戏时光上爬取游戏发售日期，存到数据库里：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/games-db.webp&quot; alt=&quot;games-db&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;然后，使用&lt;a href=&quot;https://github.com/seatgeek/fuzzywuzzy&quot;&gt;字符串近似匹配&lt;/a&gt;，在游戏群里查询倒计时。无论使用中文名还是外文名，都可以查询。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/games-countdown.webp&quot; alt=&quot;games-countdown&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;足球比赛预告足球实时赔率查询&quot;&gt;足球比赛预告/足球实时赔率查询&lt;/h2&gt;
+
+&lt;p&gt;适合懒得打开虎扑懂球帝却勤快得在群里打字的人，可能他们都住在微信里了吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/football-time.webp&quot; alt=&quot;football-time&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/football-odds.webp&quot; alt=&quot;football-odds&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;赔率数据来源 &lt;a href=&quot;https://www.oddschecker.com/&quot;&gt;Odds checker&lt;/a&gt;，使用实时各大平台最高赔率。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;质问别人为什么拍我&quot;&gt;质问别人为什么拍我&lt;/h2&gt;
+
+&lt;p&gt;在我开发机器人之前，拍一拍是微信上最无聊的功能。所以当有人手贱拍我的时候，我会大声质问他们：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/why-harrass-me.webp&quot; alt=&quot;why-harrass-me&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;就是不知道为什么大家拍得更勤快了。&lt;/p&gt;
+
+&lt;h2 id=&quot;艾特别人&quot;&gt;艾特别人&lt;/h2&gt;
+
+&lt;p&gt;除我以外，群里总有些自以为很幽默的人，喜欢修改群昵称然后让别人艾特他。为了避免没人搭理他的尴尬，我开发了艾特机器人。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/mention-me.webp&quot; alt=&quot;mention-me&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/mention-me-nsfw.webp&quot; alt=&quot;mention-me-nsfw&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;让川普举牌子&quot;&gt;让川普举牌子&lt;/h2&gt;
+
+&lt;p&gt;当你有话不方便说的时候，可以让他来帮你表达一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/trump-1.webp&quot; alt=&quot;trump-1&quot; /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/trump-1-video.webp&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/trump-2.webp&quot; alt=&quot;trump-2&quot; /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/trump-2-video.webp&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;使用了 ivanseidel 的 &lt;a href=&quot;https://github.com/ivanseidel/Is-Now-Illegal/blob/490a8e255e4447f8134f3dd66013a8cce376c87c/rotoscope/rotoscope.py&quot;&gt;rotoscope&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;下载链接里的视频&quot;&gt;下载链接里的视频&lt;/h2&gt;
+
+&lt;p&gt;当有人发送视频链接的时候，防火墙可能会阻挡很多人。更过分的是，很多app需要你下载才能打开视频，体验很差。所以，为什么不下载下来发到群里呢？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-the-stupidest-bot-ever-created/video-download.webp&quot; alt=&quot;video-download&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;黑名单与白名单&quot;&gt;黑名单与白名单&lt;/h2&gt;
+
+&lt;p&gt;为了避免在不合时宜的情况触发关键词，可以配置黑名单或者白名单。
+比如：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;userNames&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;妈妈&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;领导&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;roomNames&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wechaty Developers' Home 2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;非常重要的工作群&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;家族群&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;keywords&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;动物保护群&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;猴&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;展望未来&quot;&gt;展望未来&lt;/h2&gt;
+
+&lt;p&gt;由于 UOS 关闭了 WeChat 用户的接口，机器人现在已经离开了我们 (R.I.P.)。如果能参加 WeChaty Contributor Program，我会用 Padlocal token 复活机器人，并增加一些功能：&lt;/p&gt;
+
+&lt;h3 id=&quot;点歌功能&quot;&gt;点歌功能&lt;/h3&gt;
+
+&lt;p&gt;UOS 协议不能发送 URL Link，所以这个功能暂时无法实现。我的想法是，收到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;点歌&lt;/code&gt;关键词后，调用网易云音乐的接口，在群里发送可以直接播放的音乐。&lt;/p&gt;
+
+&lt;h3 id=&quot;优化视频下载&quot;&gt;优化视频下载&lt;/h3&gt;
+
+&lt;p&gt;UOS 的视频发送很慢，而且经常有 bug（时长不对，没有声音，电脑端打开会卡死…）使用 Padlocal 发送应该可以解决大部分问题。&lt;/p&gt;
+
+&lt;h3 id=&quot;优化屏蔽功能&quot;&gt;优化屏蔽功能&lt;/h3&gt;
+
+&lt;p&gt;目前智能全局屏蔽和关键词屏蔽，以后会加上针对每个功能、每个用户、每个群聊的屏蔽功能。&lt;/p&gt;
+
+&lt;h2 id=&quot;结语&quot;&gt;结语&lt;/h2&gt;
+
+&lt;p&gt;感谢各位吃饱了没事干的程序员，看我这么无聊的文章。但是我不认为我的工作没有价值，因为人类的本质是&lt;a href=&quot;https://github.com/BurgerBurglar/mouse_bot&quot;&gt;#复读机器人&lt;/a&gt;。&lt;/p&gt;</content><author><name>burgerburglar</name></author><category term="project" /><category term="typescript" /><category term="python" /><category term="entertainment" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-the-stupidest-bot-ever-created/640px-internet-meme-about-fuduji.svg.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-the-stupidest-bot-ever-created/640px-internet-meme-about-fuduji.svg.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">如何使用python-wechaty来搭建一个自动转发消息的微信机器人</title><link href="https://wechaty.js.org/2021/09/21/how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun/" rel="alternate" type="text/html" title="如何使用python-wechaty来搭建一个自动转发消息的微信机器人" /><published>2021-09-21T00:00:00+00:00</published><updated>2021-09-21T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/21/how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun</id><content type="html" xml:base="https://wechaty.js.org/2021/09/21/how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun/">&lt;p&gt;&lt;a href=&quot;https://wechaty.js.org/docs/contributing/&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/Wechaty-Contributor%20Program-green.svg&quot; alt=&quot;Wechaty Contributor Program&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wechaty.js.org/2021/06/08/how-to-get-a-weixin-chatbot-with-python-wechaty-and-paddlehub-and-aliyun/&quot;&gt;用python-wechaty+paddlehub+阿里云白嫖一个智能微信机器人&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本人先尝试了一遍，但是因为使用免费Web协议被封和不能登陆的情况经常出现，&lt;/p&gt;
+
+&lt;p&gt;所以本篇是&lt;strong&gt;关于使用付费&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Padlocal&lt;/code&gt;协议来构建的微信机器人&lt;/strong&gt;。因为本人在学校，来自老师的微信通知比较多，&lt;/p&gt;
+
+&lt;p&gt;手动转发到班群有时候会忘记了，会误事，所以增加了自动转发消息的功能。&lt;/p&gt;
+
+&lt;p&gt;在本项目参考了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github&lt;/code&gt;中 &lt;a href=&quot;https://github.com/wechaty/python-wechaty-getting-started&quot;&gt;python-wechaty-getting-started&lt;/a&gt; 的示例代码，并且有踩坑的情况，纪录下来。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-搞定云服务器部分&quot;&gt;1. 搞定云服务器部分&lt;/h2&gt;
+
+&lt;p&gt;这部分大佬可以参考 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lovely-Pig&lt;/code&gt; 大佬的一篇 &lt;a href=&quot;https://wechaty.js.org/2021/06/08/how-to-get-a-weixin-chatbot-with-python-wechaty-and-paddlehub-and-aliyun/&quot;&gt;blog&lt;/a&gt; 这里面对怎么白嫖一个阿里云服务器以及怎么进行初始的配置有了很清楚详细的介绍，所以这里就不再赘述。这篇博客是采用了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu&lt;/code&gt; 系统，所以这边也采用这个系统。&lt;/p&gt;
+
+&lt;p&gt;前面的  &lt;strong&gt;1.1&lt;/strong&gt; 到 &lt;strong&gt;1.17&lt;/strong&gt; 可以完全参考 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Lovely-Pig&lt;/code&gt; 大佬这篇 &lt;a href=&quot;https://wechaty.js.org/2021/06/08/how-to-get-a-weixin-chatbot-with-python-wechaty-and-paddlehub-and-aliyun/&quot;&gt;blog&lt;/a&gt; 但是从 &lt;strong&gt;1.18&lt;/strong&gt; 开始就有变化，因为从这里开始会使用付费&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Padlocal&lt;/code&gt;协议，即&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ipad&lt;/code&gt;来登陆你的微信。&lt;/p&gt;
+
+&lt;h3 id=&quot;11-在终端里输入以下指令&quot;&gt;1.1 在终端里输入以下指令&lt;/h3&gt;
+
+&lt;p&gt;这里有一个免费的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Padlocal&lt;/code&gt;协议的token申请地址: &lt;a href=&quot;http://pad-local.com&quot;&gt;http://pad-local.com&lt;/a&gt;
+先申请一下这个七天的token
+（一）连接服务器并且运行以下代码，做好前期工作&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wechaty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wechaty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latest&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;（二）配置环境变量&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bashrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;打开&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt;，在其末尾编辑以下内容配置环境变量，保存并退出&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WECHATY_PUPPET&lt;/code&gt;：这里填 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;wechaty-puppet-padlocal&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WECHATY_PUPPET_PADLOCAL_TOKEN&lt;/code&gt; ：填写你自己刚刚申请的 token&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WECHATY_TOKEN&lt;/code&gt;：可以任意填写，这个相当于是你的主机到服务器的一个令牌&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_LOG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;verbose&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wechaty-puppet-padlocal&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET_PADLOCAL_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your_puppet_padlocal_token&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET_SERVER_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8086&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;your_token&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bashrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;（三） 到这里可以使用 export 来查看环境变量是否配置成功&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;export&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun/1-1.webp&quot; alt=&quot;1-1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（四）可以运行机器人了&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ti&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wechaty_puppet_service_token_gateway&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_LOG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET_PADLOCAL_TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_PUPPET_SERVER_PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WECHATY_TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;$WECHATY_PUPPET_SERVER_PORT:$WECHATY_PUPPET_SERVER_PORT&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wechaty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wechaty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.56&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;（五）检查是否运行成功&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输入网址: &lt;a href=&quot;https://api.chatie.io/v0/hosties/your_token_at_here&quot;&gt;https://api.chatie.io/v0/hosties/your_token_at_here&lt;/a&gt;，例如我输入的地址就是这个: &lt;a href=&quot;https://api.chatie.io/v0/hosties/puppet_padlocal_XXXXX&quot;&gt;https://api.chatie.io/v0/hosties/puppet_padlocal_XXXXX&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;如果返回了服务器的ip地址以及端口号，比如{“host”:”121.43.228.90”,”port”:8080}，就说明运行成功了，如果返回的是{“host”:”0.0.0.0”,”port”:0}，就说明没有运行成功&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-搞定-python-代码部分&quot;&gt;2. 搞定 python 代码部分&lt;/h2&gt;
+
+&lt;h3 id=&quot;21-全部的python代码&quot;&gt;2.1 全部的python代码&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;asyncio&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;logging&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;typing&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Optional&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Union&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wechaty_puppet&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ScanStatus&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wechaty_puppet&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MessageType&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wechaty&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Wechaty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Contact&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wechaty.user&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Room&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Wechaty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;on_message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+        listen for message event
+        &quot;&quot;&quot;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;msg_from_contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Optional&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;talker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;       
+        &lt;span class=&quot;n&quot;&gt;msg_from_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;                                  
+        &lt;span class=&quot;n&quot;&gt;msg_from_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Optional&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;                  
+        &lt;span class=&quot;n&quot;&gt;msg_from_room_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;                                     
+        &lt;span class=&quot;n&quot;&gt;msg_from_contact_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_from_contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;              
+        &lt;span class=&quot;n&quot;&gt;msg_to_room&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'XXX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_from_room&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                              
+            &lt;span class=&quot;n&quot;&gt;msg_from_room_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_from_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_from_room_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'XXX'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_from_contact_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'XXX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MESSAGE_TYPE_TEXT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_to_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg_from_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MESSAGE_TYPE_IMAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;      
+                &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;file_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;           
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_to_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;asyncio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;22-踩坑的地方&quot;&gt;2.2 踩坑的地方&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MESSAGE_TYPE_IMAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;      
+                &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;file_box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;# 注意路径，以及文件不能为空
+&lt;/span&gt;                &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg_to_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果要将接收的图片，再转发给别人，这里有一个示例代码，出自于 &lt;a href=&quot;https://github.com/wechaty/python-wechaty-getting-started&quot;&gt;python-wechaty-getting-started&lt;/a&gt; 的示例代码&lt;/p&gt;
+
+&lt;p&gt;示例代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MessageType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MESSAGE_TYPE_IMAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file_box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# save the image as local file
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# send image file to the room
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;此处直接将消息转化成了一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FileBox&lt;/code&gt; 对象，能保存图片，但是不能 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;room.say()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我猜测，是因为微信端对&lt;strong&gt;微信图片进行了加密处理&lt;/strong&gt;，因为一个图片类型的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;msg&lt;/code&gt; 是一个加密的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xml&lt;/code&gt; 文本&lt;/p&gt;
+
+&lt;p&gt;可能方法 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;img.to_file()&lt;/code&gt; 中封装了解码的模块，但是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;room.say()&lt;/code&gt;中没有&lt;/p&gt;
+
+&lt;p&gt;所以我的思路是先将图片储存在本地，然后再进行发送，也可以达到转发图片的效果&lt;/p&gt;
+
+&lt;h3 id=&quot;参考资料&quot;&gt;参考资料&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/hub&quot;&gt;PaddleHub官网&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/wechaty/python-wechaty&quot;&gt;python-wechaty&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/wechaty/python-wechaty-getting-started&quot;&gt;python-wechaty-getting-started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wechaty.js.org/2021/06/08/how-to-get-a-weixin-chatbot-with-python-wechaty-and-paddlehub-and-aliyun&quot;&gt;手把手教你用python-wechaty+paddlehub+阿里云白嫖一个智能微信机器人&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;作者: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gan-lang&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>gan-lang</name></author><category term="article" /><category term="study" /><category term="python" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun/cover.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-how-to-get-an-automatic-message-forwarding-weixin-chatbot-with-python-wechaty-aliyun/cover.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Baidu Paddle ❤️ Wechaty &amp;amp; Mixlab ML Chatbot 大赛作品推荐</title><link href="https://wechaty.js.org/2021/09/10/baidu-paddle-machine-learning-chatbot-competition/" rel="alternate" type="text/html" title="Baidu Paddle ❤️ Wechaty &amp;amp; Mixlab ML Chatbot 大赛作品推荐" /><published>2021-09-10T00:00:00+00:00</published><updated>2021-09-10T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/09/10/baidu-paddle-machine-learning-chatbot-competition</id><content type="html" xml:base="https://wechaty.js.org/2021/09/10/baidu-paddle-machine-learning-chatbot-competition/">&lt;p&gt;由 Wechaty、PaddlePaddle 和 Mixlab 联合主办，未来事务管理局作为媒体支持的「AI创造营 ：Metaverse启动机之重构现世」硬核 Machine Learning (ML) Chatbot 创意赛的项目提交阶段已经结束，共收回33个项目，相比第一、二期创意赛(21个和24个)有了明显提高！&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;大赛启动博客：&lt;a href=&quot;https://wechaty.js.org/2021/07/07/wechaty-with-paddlepaddle/&quot;&gt;AI Chatbot Competition – Metaverse启动机之重构现世！, @valerieeeee, Jul 07, 2021&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Wechaty 社区评委们在打分评审过程中，将优秀的项目分享给大家，希望能够帮助大家未来发挥出更多的创意！&lt;/p&gt;
+
+&lt;h2 id=&quot;一只能看懂表格图片的数据助手&quot;&gt;一只能看懂表格图片的数据助手&lt;/h2&gt;
+
+&lt;p&gt;基于PaddleOCR解析表格图片数据，并通过Text2SQL进行进行数据查询。场景模拟一份星球数据，数据助手基于数据表格进行结果精准查询。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1B64y1i7GM&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/thunder95/Paddle_Table_Image_Reader/blob/main/2262444.ipynb&quot;&gt;https://github.com/thunder95/Paddle_Table_Image_Reader/blob/main/2262444.ipynb&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;彩虹屁微信机器人&quot;&gt;彩虹屁微信机器人&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;彩虹屁，不开心哄你开心&lt;/li&gt;
+  &lt;li&gt;舔狗日记，舔与被舔是不是都很开心啊哈哈&lt;/li&gt;
+  &lt;li&gt;毒鸡汤，兄弟干了这碗鸡汤还能熬&lt;/li&gt;
+  &lt;li&gt;带我去one，自动ps人像并动漫到one的每日美图美文中&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV19f4y157NL&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Huan: I love this BGM!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/livingbody/rainbow_fart&quot;&gt;https://github.com/livingbody/rainbow_fart&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;微信数据小助手&quot;&gt;微信数据小助手&lt;/h2&gt;
+
+&lt;p&gt;你想导出喜欢得表情包嘛？自定义的，购买的，想看怎么办？导不出来看不了？重要文件能不能默认接受？发的语音、视频能不能自动保存？聊天记录自动保存？那么微信数据小助手来了，可以根据发送的文件类型，按原文件名保存，聊天记录也可以保存下来，完美满足各类需求。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1x3411i732&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/livingbody/wechat_data_little_assistant&quot;&gt;https://github.com/livingbody/wechat_data_little_assistant&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;星际旅行向导机器人&quot;&gt;星际旅行向导机器人&lt;/h2&gt;
+
+&lt;p&gt;本项目为基于wechaty+paddlehub实现的星际旅行向导机器人&lt;/p&gt;
+
+&lt;p&gt;2090年的一天你驱着自己的私人飞船航行在大麦哲伦星系右旋臂附近，恒星的闪光让你流连忘返，殊不知危险以悄然来临。一颗冒失的小行星擦破了你飞船的右燃料箱，让你去巴卡罗马星探望外婆的计划破灭。&lt;/p&gt;
+
+&lt;p&gt;“噢，现在担心的不是什么外婆不外婆的，你得赶紧寻找可降落的行星，燃料已经不足以支撑你长久飞行”&lt;/p&gt;
+
+&lt;p&gt;情急之下，你连线上了星际旅行向导机器人。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1Kb4y1z7kH&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/Cursky/Cosmic-Wanderer-Guide-Robot&quot;&gt;https://github.com/Cursky/Cosmic-Wanderer-Guide-Robot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;微信情景代入对话游戏参与每个不同的冒险-身临其境的对话游戏&quot;&gt;【微信情景代入对话游戏】参与每个不同的冒险 身临其境的对话游戏&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;剧本杀？&lt;/li&gt;
+  &lt;li&gt;跑团？&lt;/li&gt;
+  &lt;li&gt;交互式小说？对话小说？&lt;/li&gt;
+  &lt;li&gt;文字冒险游戏？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你了解任意其一，那么将很好理解我们项目的愿景：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;—— 我们期望通过文字和微信，就能够提供更加身临其境的沉浸感，去体验每一段故事，就像故事里写着的那样。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV17L4y1Y7cB&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/Cursky/Wechat-game&quot;&gt;https://github.com/Cursky/Wechat-game&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;手势识别应用-微信聊天机器人基于paadlevideowechaty&quot;&gt;手势识别应用-微信聊天机器人（基于PaadleVideo+Wechaty）&lt;/h2&gt;
+
+&lt;p&gt;在本项目中，我们利用已经训练好的手势识别模型来制作了一个模拟的飞船驾照考试官。
+未来的飞船已经脱离了繁琐的控制界面，均由手势动作来完成对飞船的操纵。
+基于这一点，我们就可以利用微信聊天机器人和手势识别模型做出下面这个有趣的小项目。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1JU4y177s7&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/Cursky/Airship-license-examiner-robot&quot;&gt;https://github.com/Cursky/Airship-license-examiner-robot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;基于paddlenlpwechaty第一个实时微信语音聊天机器人诞生了&quot;&gt;基于paddlenlp+wechaty第一个实时微信语音聊天机器人诞生了&lt;/h2&gt;
+
+&lt;p&gt;PaddleNLP + Wechaty 的微信闲聊机器人：通过Wechaty获取微信接收的消息，然后使用PaddleNLP的plato-mini模型根据对话的上下文生成新的对话文本，最终以微信消息的形式发送，实现闲聊的交互，可发语音、可发文字聊天，发一张图片，机器人会把图片转换成星际争霸风格的图片。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1BQ4y1f7HP&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/AI-Mart/paddlenlp_chatbot&quot;&gt;https://github.com/AI-Mart/paddlenlp_chatbot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;lpcclook-at-the-picture-and-change-the-color&quot;&gt;LPCC：Look at the picture and change the color&lt;/h2&gt;
+
+&lt;p&gt;借助飞桨PaddlePaddle技术，构建未来世界的超级ChatBot，根据图像控制现实世界的LED流水灯！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1pq4y1p7XH&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/zbp-xxxp/LPCC&quot;&gt;https://github.com/zbp-xxxp/LPCC&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;七夕孤寡机器人&quot;&gt;七夕孤寡机器人&lt;/h2&gt;
+
+&lt;p&gt;七夕在即 你还在为怎么说情话烦恼嘛？ 你还在不知道怎么样文艺表白困苦嘛？ 你还在因为分不清口红而被责备嘛？ 你还在为一个人”孤寡”烦恼嘛？ 孤寡机器人解决你的困恼！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1ab4y1z7vs&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/jhcgt4869/gugua_helps&quot;&gt;https://github.com/jhcgt4869/gugua_helps&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;证件照助手&quot;&gt;证件照助手&lt;/h2&gt;
+
+&lt;p&gt;你是否苦恼于没有条件将证件照换背景色
+或是只有大头照。或是只有某种底色，要换其他底色，
+那么请使用它~
+它就是你的证件照小助手！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1jq4y1Q7NJ&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/ITerydh/AImaker-paddleMakePhoto&quot;&gt;https://github.com/ITerydh/AImaker-paddleMakePhoto&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;九宫图爱心生成器&quot;&gt;九宫图爱心生成器~&lt;/h2&gt;
+
+&lt;p&gt;抖音风来袭，输入为一张图片，得到9张3*3的图片，画出属于你的爱心~拒绝繁琐的截屏！快来生成你美美的照片吧~送给女朋友的无敌神器！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1Cf4y1P7Kc&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/ITerydh/Wechaty-makeJiuPic&quot;&gt;https://github.com/ITerydh/Wechaty-makeJiuPic&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;wander001---未来流浪者-v21&quot;&gt;Wander[001] - 未来流浪者 V2.1&lt;/h2&gt;
+
+&lt;p&gt;Wander [ 001 ]是一个以AI chatbot为主体的跨媒体互联网艺术项目，包括可交互的微信端机器人、CG影像、以及实时更新的地图网站。&lt;/p&gt;
+
+&lt;p&gt;参与者可以通过微信向Wander发送现实中的地点，Wander会从随机的“未来时间点”前往当地，返回科幻游记与街景图。参与者可以用行动指令，让Wander探索未知的地点，甚至与遇到的角色互动交流。&lt;/p&gt;
+
+&lt;p&gt;每一次的旅行的时间点是不确定的，而旅行的结果会实时记录于地图网站上。在人类的参与中，未来的地图会被不断完善，形成一个由公众与AI共同构建的科幻未来。艺术家基于Wander传送的游记与图像进行进一步CG创作，通过人机配合延展对未来的构想。&lt;/p&gt;
+
+&lt;p&gt;本项目展出于2021 Wave Summit,2021保利春季拍卖NFT展区与2021北京时代美术馆-亚洲数字艺术展。&lt;/p&gt;
+
+&lt;p&gt;截至2021年8月，已有超过1000名参与者带领Wander旅行。我们希望Wander能让人们重新审视熟悉的环境，从我们最熟悉的通讯软件里给人带去惊喜。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2021/09-baidu-paddle-machine-learning-chatbot-competition/wander.webp&quot; alt=&quot;扫码或微信搜索：WanderingBot，添加好友后即可互动&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/sunyuqian1997/Wander001-V2.1&quot;&gt;https://github.com/sunyuqian1997/Wander001-V2.1&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;铅笔画下的虚拟形象&quot;&gt;铅笔画下的虚拟形象&lt;/h2&gt;
+
+&lt;p&gt;在看到B站一些UP主，都是用虚拟AI合成的形象与观众互动，所以我也想用飞桨来自制一个属于自己的虚拟形象，也让大家可以在微信中，生成自己的虚拟形象。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1kv411K719&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/zengzhuoqi/paddle-virtual-figures-in-penclings&quot;&gt;https://github.com/zengzhuoqi/paddle-virtual-figures-in-penclings&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;星际终端-wechatypaddlesegpaddle-lsgancv&quot;&gt;星际终端 Wechaty+PaddleSeg+Paddle LSGAN+CV&lt;/h2&gt;
+
+&lt;p&gt;向外太空发信息，去寻找外星生物，外星植物，外星建筑, 或许它就藏匿在你附近。基于微信聊天的 结合增强现实技术（AR）+LBS(暂时基于图像） 的星际漂流瓶 的轻社交游戏。重新认识你身边的世界，或许我们早已与外星生命共同生活着。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1hL411E79M&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/kevinfu1717/SuperInterstellarTerminal&quot;&gt;https://github.com/kevinfu1717/SuperInterstellarTerminal&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;星星的孩子---一款为孤独症孩子设计的聊天机器人游戏&quot;&gt;星星的孩子 - 一款为孤独症孩子设计的聊天机器人游戏&lt;/h2&gt;
+
+&lt;p&gt;孤独症儿童是目前常常被忽视的一类群体。他们有着类似性格内向的特征，实际却受着广泛性发育障碍的折磨。这类儿童在与人交往时存在着沟通障碍。为孤独症儿童做出我们的贡献！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1hM4y157e3&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/tipani86/StarChild&quot;&gt;https://github.com/tipani86/StarChild&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;宇宙知识问答wechatypaddlegan&quot;&gt;宇宙知识问答wechaty+paddlegan&lt;/h2&gt;
+
+&lt;p&gt;wechaty+paddlegan制作的宇宙知识问答小游戏 ‘欢迎来玩宇宙知识问答~发送提问获得题目，答完第一题可以发送下一题答题，发一张照片，变成卡通荣誉证书&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1E64y1s77a&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/diandian16/wenda/&quot;&gt;https://github.com/diandian16/wenda/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;paddlehubwechaty搭建能闲聊的聊天机器人&quot;&gt;Paddlehub+Wechaty搭建能闲聊的聊天机器人&lt;/h2&gt;
+
+&lt;p&gt;Chatbot是对话式交会的产品形态。 我们身边的Chatbot 闲聊型 任务型 问答型 今天我们就来了解下闲聊型机器人&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1j64y1e7hE&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/diandian16/chatbot&quot;&gt;https://github.com/diandian16/chatbot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;礼仪机器人c-3po&quot;&gt;礼仪机器人C-3PO&lt;/h2&gt;
+
+&lt;p&gt;Aurebesh语言转换器&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1d44y1q7To&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/yongxinliao-hqu/C-3PO_Wechaty_PaddleHub&quot;&gt;https://github.com/yongxinliao-hqu/C-3PO_Wechaty_PaddleHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;space-disagreement-resolver&quot;&gt;Space Disagreement Resolver&lt;/h2&gt;
+
+&lt;p&gt;在这个宇宙里最大的问题是什么？是分歧！但是怎样可以解决掉分歧呢？
+其实人类早已想到了办法，那就是猜拳，但这个看似很公平的方法其实存在两种致命缺陷，就是出手时的快慢和作弊！
+就是这两种缺陷而导致其它解决分歧方法的出现，像投票，辩论。但这是本末倒置，应该回到基本！
+第一代“分歧终端机”在地球上的出现成功解决了人类猜拳时的快慢和作弊问题！
+第二代“宇宙分歧终端机”的量产，将能够解决一切宇宙间的纷争…&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1ab4y1k74P&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/yongxinliao-hqu/SpaceDisagreementResolver&quot;&gt;https://github.com/yongxinliao-hqu/SpaceDisagreementResolver&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;微信刷题机器人&quot;&gt;微信刷题机器人&lt;/h2&gt;
+
+&lt;p&gt;我的一个朋友正在备考会计，每天看视频刷题。我便想到，能不能给机器人添加一个自动出题，用户答题，然后给答题成绩和解析的功能。毕竟闲聊娱乐只是一时新鲜，实用性才永恒王道，说干就干，于是就有了这个项目。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1X64y1W73R&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/Turbolisten/wx-bot-java&quot;&gt;https://github.com/Turbolisten/wx-bot-java&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;对话故事生成创造自己的无限世界&quot;&gt;对话故事生成，创造自己的无限世界&lt;/h2&gt;
+
+&lt;p&gt;如果可以，你最想穿越到哪部电影，小说里？ 这次利用 paddlenlp 中提供的 GPT2 和 wechaty 库展开对话故事续写，与 AI 互动共同创造剧情 预先设置你想交互的世界场景，比如面对三体人的进攻，发挥你的脑洞输入你想到的任何动作或者剧情大纲，模型的续写保证让你赞(hei)不(ren)绝(wen)口(hao)&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1Kg411E7PH&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/27182812/Paddle_Story_Generation&quot;&gt;https://github.com/27182812/Paddle_Story_Generation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;科幻穿越星座能力者&quot;&gt;科幻穿越星座能力者&lt;/h2&gt;
+
+&lt;p&gt;12星座若穿越科幻剧，会拥有什么超能力呢？快来迎接你的专属超能力吧！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1PL4y1v7nf&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/27182812/paddle-wechaty-Zodiac&quot;&gt;https://github.com/27182812/paddle-wechaty-Zodiac&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;paint-master-油画带师&quot;&gt;Paint-Master 油画带师&lt;/h2&gt;
+
+&lt;p&gt;基于Wechaty和PaintTransformer的图像油画带师。油画中的世界，美不胜收。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1TL41187Lb&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/AP-Kai/Paint-Master&quot;&gt;https://github.com/AP-Kai/Paint-Master&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;移动小屋智能车内互动玩伴&quot;&gt;移动小屋：智能车内互动玩伴&lt;/h2&gt;
+
+&lt;p&gt;移动小车， 智能车内互动玩伴 - 提供城市间，长途上和黑夜里多场景下的互动模式。&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1D64y1i795&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/livingbody/joy_rides&quot;&gt;https://github.com/livingbody/joy_rides&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;howlerbot&quot;&gt;HowlerBot&lt;/h2&gt;
+
+&lt;p&gt;HowlerBot 定位是生活帮手，陪玩，整蛊等多元化的机器人。由于目前智商感人，有时候让人抓狂！不过她会成长，所以请给她点耐心，让我们见证脑残儿童的成长吧！&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1wv411P78p&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/jiaqianjing/HowlerBot&quot;&gt;https://github.com/jiaqianjing/HowlerBot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;恋爱助手-一键表白-带走你的心上人&quot;&gt;恋爱助手 一键表白 带走你的心上人&lt;/h2&gt;
+
+&lt;p&gt;你在恋爱时的神助攻&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1Fg411V7wY&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/pangay/PaddlePaddle-Wechaty-Mixlab-&quot;&gt;https://github.com/pangay/PaddlePaddle-Wechaty-Mixlab-&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;捕捉你的宝可梦吧&quot;&gt;捕捉你的宝可梦吧&lt;/h2&gt;
+
+&lt;p&gt;还记得小时候的神奇宝贝吗？ 你是不是也渴望拥有一只自己的宝可梦？哈，现在 Pokemon_Identify_Bot 帮你重回童年&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1eL4y1Y7yf&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/pangay/Pokemon-recognize&quot;&gt;https://github.com/pangay/Pokemon-recognize&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;wechatypaddlegan实现人脸融合功能&quot;&gt;wechaty+paddleGAN实现人脸融合功能&lt;/h2&gt;
+
+&lt;p&gt;在临近七夕的时候paddleGAN更新了人脸融合的新玩法,正好AI创造营开始了,所以两者结合,让wechaty和paddleGAN结合起来&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1dg41157rZ&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/liang1433223/paddleGAN-wechaty&quot;&gt;https://github.com/liang1433223/paddleGAN-wechaty&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;多轮对话吐槽emoi及打肿脸视频动态实时生成&quot;&gt;多轮对话吐槽,emoi及打肿脸视频动态实时生成&lt;/h2&gt;
+
+&lt;p&gt;构建了可用于多个对话框架的场景型对话的聊天机器人。支持吐槽类情景及情感倾诉型情景。使用wechaty，结合Paddlehub的人脸特征点、动漫人脸生成、对联生成、情感分类，ernie迁移，人脸变胖&lt;/p&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 70%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=BV1nA41157i2&amp;amp;high_quality=1&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&quot;https://github.com/kevinfu1717/multimediaChatbot&quot;&gt;https://github.com/kevinfu1717/multimediaChatbot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;关于wechaty&quot;&gt;关于WeChaty&lt;/h2&gt;
+
+&lt;p&gt;Wechaty 是一个开源聊天机器人框架SDK，具有多平台、多语言和多插件的特性，支持Python, Go, Java, Scala, .NET, PHP, Rust 等多语言版本，通过几行代码即可创建一个聊天机器人。经过5年多的发展，现在Wechaty开源社区已拥有数十位Committers，百余位Contributors，并被万名GitHub开发者Star。目前，Wechaty的开发者已遍布全球多个国家和地区，覆盖数万人，是国内活跃的Conversational AI Chatbot 开发者社区。&lt;/p&gt;
+
+&lt;h2 id=&quot;关于mixlab&quot;&gt;关于MixLab&lt;/h2&gt;
+
+&lt;p&gt;MixLab是容纳了多元学科人才的跨界创新社区，目前已汇集5w+科技和设计等多元领域的跨学科人才，并拥有上海、北京、深圳、苏州分会，以期通过去中⼼化的方式，探索新知识、新领域，产生跨领域交汇的新方向。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;微信公众号： mixlab无界社区、Mixlab and ibrandup人物&lt;/li&gt;
+  &lt;li&gt;GitHub: &lt;a href=&quot;https://github.com/MixlabPro&quot;&gt;https://github.com/MixlabPro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;关于未来事务管理局&quot;&gt;关于未来事务管理局&lt;/h2&gt;
+
+&lt;p&gt;未来事务管理局是中国科幻文化的领军品牌。致力于以专业能力推动科幻产业发展，在科幻领域挖掘新的产品与价值，打造中国科幻的真正黄金时代。&lt;/p&gt;
+
+&lt;p&gt;未来局以科幻创作培育和内容开发为核心，覆盖影视、游戏、广告等业务，线下开展科幻创作工作坊、写作营，为科幻产业持续供给人才与内容。并在每年举办另一颗星球科幻大会APSFcon等大型活动，拥有国内泛科幻领域最具影响力的垂直媒体矩阵。&lt;/p&gt;
+
+&lt;h2 id=&quot;关于paddlenlp&quot;&gt;关于PaddleNLP&lt;/h2&gt;
+
+&lt;p&gt;PaddleNLP是飞桨生态文本领域的核心开发库，具备简洁易用的文本领域全流程API、多场景的应用示例、非常丰富的预训练模型，深度适配飞桨框架2.x版。
+只有你想不到，没有PaddleNLP做不到！&lt;/p&gt;
+
+&lt;p&gt;客服、闲聊、“凡尔赛”，对诗、写作、彩虹屁，起名、对联、码代码，参考官方示例，解锁更多超能力！&lt;/p&gt;</content><author><name>valerieeeee</name></author><category term="project" /><category term="baidu" /><category term="paddle" /><category term="machine-learning" /><category term="competition" /><category term="sticky" /><category term="news" /><category term="game" /><summary type="html">由 Wechaty、PaddlePaddle 和 Mixlab 联合主办，未来事务管理局作为媒体支持的「AI创造营 ：Metaverse启动机之重构现世」硬核 Machine Learning (ML) Chatbot 创意赛的项目提交阶段已经结束，共收回33个项目，相比第一、二期创意赛(21个和24个)有了明显提高！</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/09-baidu-paddle-machine-learning-chatbot-competition/baidu-wechaty.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/09-baidu-paddle-machine-learning-chatbot-competition/baidu-wechaty.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OSPP 2021-期中报告-开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块</title><link href="https://wechaty.js.org/2021/08/31/ospp-mid-term-qq-puppet/" rel="alternate" type="text/html" title="OSPP 2021-期中报告-开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块" /><published>2021-08-31T00:00:00+00:00</published><updated>2021-08-31T00:00:00+00:00</updated><id>https://wechaty.js.org/2021/08/31/ospp-mid-term-qq-puppet</id><content type="html" xml:base="https://wechaty.js.org/2021/08/31/ospp-mid-term-qq-puppet/">&lt;p&gt;本项目通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成为 Wechaty 可以使用的社区生态模块。&lt;/p&gt;
+
+&lt;p&gt;“&lt;a href=&quot;https://summer.iscas.ac.cn&quot;&gt;开源软件供应链点亮计划-暑期2021&lt;/a&gt;”（以下简称 暑期2021）是由中科院软件所与 openEuler 社区共同举办的一项面向高校学生的暑期活动。旨在鼓励在校学生积极参与开源软件的开发维护，促进国内优秀开源软件社区的蓬勃发展。活动联合各大开源社区，针对重要开源软件的开发与维护提供项目，并向全球高校学生开放报名。 学生可自主选择感兴趣的项目进行申请，并在中选后获得该软件资深维护者（社区导师）亲自指导的机会。 根据项目的难易程度和完成情况，参与者还可获取“开源软件供应链点亮计划-暑期2021”活动奖金和奖杯。&lt;/p&gt;
+
+&lt;p&gt;本项目 [开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块] 系 暑期2021 支持的开源项目。&lt;/p&gt;
+
+&lt;h2 id=&quot;开发支持-qq-聊天软件的-wechaty-puppet-provider-模块&quot;&gt;开发支持 QQ 聊天软件的 Wechaty Puppet Provider 模块&lt;/h2&gt;
+
+&lt;h3 id=&quot;项目背景&quot;&gt;项目背景&lt;/h3&gt;
+
+&lt;p&gt;Wechaty 社区目前已经支持微信、Whatsapp、企业微信、飞书等常见流行即时通讯工
+具，并且能够通过多语言 SDK (比如 Python Wechaty) 进行调用。
+QQ 是国内和微信并列的两大聊天软件。我们在本次 Summer 2021 的项目中，Wechaty
+希望可以实现对 QQ Chatbot 的支持。通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成
+为 Wechaty 可以使用的社区生态模块。&lt;/p&gt;
+
+&lt;h3 id=&quot;方案描述&quot;&gt;方案描述&lt;/h3&gt;
+
+&lt;p&gt;使用 &lt;a href=&quot;https://github.com/wechaty/wechaty-puppet-mock&quot;&gt;https://github.com/wechaty/wechaty-puppet-mock&lt;/a&gt; 项目作为模版，参考社区其他
+的 Wechaty Puppet Provider 代码模块，对 QQ 进行规划、RPA 选型、原型测试，和最终
+的代码封装。
+构建一个 Wechaty Puppet Provider 模块。 在初期开发中，能够实现文本消息的接收和发送，即可完成原型验证 POC。&lt;/p&gt;
+
+&lt;h3 id=&quot;项目技术栈&quot;&gt;项目技术栈&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;TypeScript programming language&lt;/li&gt;
+  &lt;li&gt;Git&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wechaty.js.org/docs/explainations//rpa&quot;&gt;RPA&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;时间规划&quot;&gt;时间规划&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;第一阶段（7月-8月）
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;7.1-7.10（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;先和导师沟通，并观看Wechaty Puppet Provider 的 workshop 视频，熟悉Wechaty Puppet Provider的业务流程，并对自己目前还没有掌握的nodejs、npm、typescript等内容进行快速的了解和学习，对时间安排做好具体的规划&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;7.11-8.15（已如期完成）&lt;/p&gt;
+
+        &lt;p&gt;开始正式进行代码的prototyping，先完成基础的功能，完成通过 Wechaty 加载 wechaty-puppet-oicq 模块，并通过oicq项目实现的qq协议，实现文本消息的收发功能。每周协同导师进行功能的开发和完善&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;第二阶段（8月-10月）&lt;/p&gt;
+
+    &lt;p&gt;在现有基础上，滑动验证码登陆、设备锁、qq登陆风控等问题进行调研和排查&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;8.16-8.30&lt;/p&gt;
+
+        &lt;p&gt;完成期中 Demo Day 视频和wechaty.js.org上的中期报告&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;9.1-10.30（即将完成）&lt;/p&gt;
+
+        &lt;p&gt;继续完善功能，将消息接收，扩展到群聊天消息、图片消息等领域。&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;项目进度&quot;&gt;项目进度&lt;/h2&gt;
+
+&lt;h3 id=&quot;已完成部分&quot;&gt;已完成部分&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;wechaty.js.org的博客的配置&lt;/li&gt;
+  &lt;li&gt;npm项目包的安装&lt;/li&gt;
+  &lt;li&gt;typescript开发环境的熟悉&lt;/li&gt;
+  &lt;li&gt;github pull request使用的全流程&lt;/li&gt;
+  &lt;li&gt;wechaty-puppet-oicq模块的ding dong的完成（扫码即可运行QQ机器人，发送ding给机器人，即可收到dong的消息）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;完全按照有计划顺利进行，还略有加快。&lt;/p&gt;
+
+&lt;h3 id=&quot;遇到的困难与解决&quot;&gt;遇到的困难与解决&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;中途实习繁忙和生病导致拉下两周进度&lt;/p&gt;
+
+    &lt;p&gt;虽然中间有生病，拉下两周，但也已经通过提高效率，重点攻克项目难点，成功赶上进度，并略有提前。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;wechaty消息处理链路相对复杂，难以理解`&lt;/p&gt;
+
+    &lt;p&gt;通过咨询项目导师和wechaty飞书机器人负责人等途径，观看社区livecoding视频，对消息处理进行快速学习，并通过编码实践，最终成功将oicq的事件和消息格式转换为了wechaty的messageRawPayload，也加深了对框架架构设计的理解。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;遇到QQ风控
+  通过途径弄到了一些QQ小号方便测试。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;后续工作安排&quot;&gt;后续工作安排&lt;/h3&gt;
+
+&lt;p&gt;按照原计划继续进行，并且尽可能对图片消息、语音消息等增加支持，使wechaty-puppet-oicq成为事件和API支持非常详细的机器人协议提供端。&lt;/p&gt;
+
+&lt;h2 id=&quot;项目成果&quot;&gt;项目成果&lt;/h2&gt;
+
+&lt;p&gt;项目仓库: &lt;a href=&quot;https://github.com/wechaty/wechaty-puppet-oicq&quot;&gt;https://github.com/wechaty/wechaty-puppet-oicq&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;live-coding视频&quot;&gt;live coding视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/FY4U2JPZjxE&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内版：&lt;a href=&quot;http://www.iqiyi.com/v_gqyz7g94fw.html&quot;&gt;http://www.iqiyi.com/v_gqyz7g94fw.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ppt展示视频&quot;&gt;PPT展示视频：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube.com/embed/pT16CnFhTPQ&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;国内版：&lt;a href=&quot;http://www.iqiyi.com/v_1ixjchyr7yw.html&quot;&gt;http://www.iqiyi.com/v_1ixjchyr7yw.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;项目ppt&quot;&gt;项目PPT：&lt;/h3&gt;
+
+&lt;div style=&quot;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+&quot;&gt;
+  &lt;iframe src=&quot;/assets/js/viewer-js/#/assets/2021/08-ospp-mid-term-qq-puppet/qq-puppet.pdf&quot; allowfullscreen=&quot;&quot; webkitallowfullscreen=&quot;&quot; frameborder=&quot;0&quot; style=&quot;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    &quot;&gt;
+&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&quot;联系我们&quot;&gt;联系我们&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;导师：李佳芮 Wechaty co-creator, Founder &amp;amp; CEO of Juzi.BOT (rui@chatie.io)&lt;/li&gt;
+  &lt;li&gt;导师：李卓桓 Wechaty creator, Tencent TVP of Chatbot (huan@chatie.io)&lt;/li&gt;
+  &lt;li&gt;学生：naivebird(github)：20210240029@fudan.edu.cn&lt;/li&gt;
+  &lt;li&gt;项目链接：&lt;a href=&quot;https://github.com/wechaty/summer/issues/81&quot;&gt;https://github.com/wechaty/summer/issues/81&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>anaivebird</name></author><category term="project" /><category term="ospp" /><category term="summer-of-wechaty" /><category term="summer-2021" /><category term="ospp" /><category term="ospp-2021" /><category term="mid-term" /><category term="other" /><category term="puppet" /><category term="qq" /><summary type="html">本项目通过 Wechaty Puppet 的接口，可以将 QQ 进行 RPA 封装，使其成为 wechaty-puppet-oicq 供 Wechaty 开发者方便接入 QQ 平台，使其成为 Wechaty 可以使用的社区生态模块。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://wechaty.js.org/assets/2021/08-ospp-mid-term-qq-puppet/wechaty-qq-puppet-logo.webp" /><media:content medium="image" url="https://wechaty.js.org/assets/2021/08-ospp-mid-term-qq-puppet/wechaty-qq-puppet-logo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
